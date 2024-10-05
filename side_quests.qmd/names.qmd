@@ -1,0 +1,67 @@
+---
+title: "Name Analysis Over the Years"
+author: "Your Name"
+format: html
+---
+
+## Name Analysis
+
+In this report, we will analyze how many people were named "Oliver" over the years.
+
+---
+title: "Name Analysis Over the Years"
+author: "Your Name"
+format: html
+---
+
+## Analysis of the Name "Oliver" Over the Years
+
+This analysis visualizes the number of people named "Oliver" over several years based on the data provided.
+
+---
+title: "Name Analysis Over the Years"
+author: "Your Name"
+format: html
+---
+
+## Name Analysis
+
+In this report, we will analyze how many people were named "Oliver" over the years.
+
+---
+title: "Name Analysis Over the Years"
+author: "Your Name"
+format: html
+---
+
+## Analysis of the Name "Oliver" Over the Years
+
+This report visualizes the total number of people named "Oliver" over the years, aggregated across all states based on the `names_year.csv` dataset.
+
+---
+title: "Name Analysis for Oliver in Utah"
+author: "Your Name"
+format: html
+---
+
+## Total Number of Babies Named "Oliver" in Utah Over All Years
+
+This report provides the total number of babies named "Oliver" in the state of Utah for all years.
+
+```{python}
+# Import necessary libraries
+import pandas as pd
+
+# Load the CSV file
+df = pd.read_csv("names_year.csv")
+
+# Filter for the name 'Oliver'
+oliver_df = df[df['name'] == 'Oliver']
+
+# Sum the number of babies named 'Oliver' in Utah (UT) across all years
+total_oliver_utah = oliver_df['UT'].sum()
+
+# Show the result
+total_oliver_utah
+
+

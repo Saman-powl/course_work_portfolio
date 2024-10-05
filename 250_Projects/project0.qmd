@@ -1,10 +1,10 @@
 import pandas as pd
-from palmerpenguins import load_penguins
+from palmerpenguins import penguins.csv
 from lets_plot import *
 
 LetsPlot.setup_html()
 
-penguins = load_penguins()
+penguins = penguins.csv()
 penguins
 
 (
@@ -24,7 +24,7 @@ penguins
 ---
 title: "Client Report - Introduction"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "[Samantha Powell]"
 format:
   html:
     self-contained: true
@@ -60,13 +60,21 @@ import numpy as np
 from lets_plot import *
 
 LetsPlot.setup_html(isolated_frame=True)
+import pandas as pd
+from lets_plot import *
+
+# Set up LetsPlot for rendering
+LetsPlot.setup_html()
 ```
+
 
 
 ## Elevator pitch
 _A SHORT (2-3 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._ (Note: this is not a summary of the project, but a summary of the results.)
 
 _A Client has requested this analysis and this is your one shot of what you would say to your boss in a 2 min elevator ride before he takes your report and hands it to the client._
+
+The analysis of the Palmer Penguins dataset shows a clear positive relationship between flipper length and body mass across Adelie, Chinstrap, and Gentoo species. This distinction helps separate penguin species based on their physical attributes, providing a useful method for field researchers and ecologists to monitor and classify penguin populations efficiently. These insights could also contribute to predictive models for species identification in wildlife conservation.
 
 ```{python}
 #| label: project-data
@@ -76,6 +84,19 @@ _A Client has requested this analysis and this is your one shot of what you woul
 
 # Include and execute your code here
 df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4python4ds/master/data-raw/mpg/mpg.csv")
+
+#| label: project-data
+#| code-summary: Read and format project data
+
+# Load the penguins data from the CSV file
+penguins = pd.read_csv("penguins.csv")
+
+# Drop rows with missing values
+penguins_clean = penguins.dropna()
+
+# Display the first few rows of the cleaned dataset to verify
+penguins_clean.head()
+
 ```
 
 __Highlight the Questions and Tasks__
@@ -86,18 +107,23 @@ __COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
 
 _Add details here to answer the question but `NOT` like an assignment Q&A. You need to `write your answers as a consulting solution report`. A Client needs to understand the answer, but also needs to understand the decisions that went into the answer (when applicable)._
 
-_include figures in chunks and discuss your findings in the figure._
-
-- _YOU SHOULD HAVE QUALITY WRITING THAT DESCRIBES YOUR CHARTS AND TABLES._
-
-- _WE HIGHLY RECOMMEND [GRAMMARLY](https://grammarly.com/) TO FIX YOUR SPELLING AND GRAMMAR. WRITING TAKES TIME TO BE CLEAR. SPEND THE TIME TO PRACITCE._ 
-
-- _YOU SHOULD HAVE QUALITY COMMENTS THAT DESCRIBES YOUR CODES. OFTEN CODEERS WORK IN TEAMS AND YOU NEED TO HAVE QUALTIY COMMENTS FOR YOUR TEAM AND YOURSELF. YOU MAY NEED TO REVISIT CODE YOU WROTE OVER A YEAR AGO, AND IF YOU DONT COMMENT IT NOW YOU WONT REMEMBER WHY YOU DID WHAT YOU DID._
 
 ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
+#| label: Q1-chart
+#| code-summary: plot example
+#| fig-cap: "Body mass vs flipper length by species"
+#| fig-align: center
+
+# Create a scatter plot for body mass vs flipper length, colored by species
+ggplot(penguins_clean, aes(x='flipper_length_mm', y='body_mass_g', color='species', shape='species')) + \
+    geom_point() + \
+    ggtitle("Body mass and flipper length of Penguins") + \
+    xlab("Flipper length (mm)") + \
+    ylab("Body mass (g)") + \
+    theme_minimal()
 
 
 ```
@@ -115,8 +141,7 @@ __COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
 #| fig-align: center
 # Include and execute your code here
 
-(
-  ggplot(df.head(500), aes(x='displ', y='hwy')) + geom_point()
+(ggplot(df.head(500), aes(x='displ', y='hwy')) + geom_point()
 )
 ```
 
@@ -132,15 +157,20 @@ __COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
 #| tbl-cap: "table example"
 #| tbl-cap-location: top
 # Include and execute your code here
-mydat = (df.head(1000)
-    .groupby('manufacturer')
-    .sum()
-    .reset_index()
-    .tail(10)
-    .filter(["manufacturer","displ","cty", "hwy"])
-)
+#| label: Q1-table
+#| code-summary: table example
+#| tbl-cap: "Summary statistics of penguin species"
+#| tbl-cap-location: top
 
-display(mydat)
+# Example of summarizing the penguins dataset by species
+penguin_summary = penguins_clean.groupby('species').agg({
+    'flipper_length_mm': 'mean',
+    'body_mass_g': 'mean'
+}).reset_index()
+
+# Display the summary table
+penguin_summary
+
 
 ```
 

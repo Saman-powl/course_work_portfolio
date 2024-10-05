@@ -1,0 +1,63 @@
+---
+layout: cv
+title: "Samantha Powell's Resume"
+---
+
+# Samantha Powell
+Business Analytics Student
+
+<div id="webaddress">
+<a href="mailto:skpowell38@gmail.com">skpowell38@gmail.com</a>  
+Phone: 713-775-6080
+</div>
+
+## Education
+
+**Brigham Young University - Idaho**  
+*Rexburg, ID*  
+**Business Analytics**  
+_September 2020 - April 2025_
+
+**Dulles High School**  
+*Houston, TX*  
+**High School Diploma**  
+_June 2020_
+
+---
+
+## Work Experience
+
+### Dog Sitting  
+*Houston, TX*  
+
+- Provided dog-sitting services for a neighboring family.
+- Ensured the well-being of the dog by letting it out, feeding it, and maintaining water levels.
+- Returned in the evenings to feed the dog and secure it in its designated area within the house.
+
+### LDS Helping Hands  
+*Sugar Land, TX*  
+**Hurricane Clean-Up Volunteer**  
+_May 2018 - May 2020_
+
+- Participated in multiple groups engaged in tearing down drywall in houses affected by Hurricane Harvey.
+- Assisted in the removal of items from flooded houses as directed by homeowners.
+
+### Babysitter  
+*Sugar Land, TX*  
+_August 2017 - August 2017_
+
+---
+
+## Skills
+
+1. **Organizational Skills**  
+   - Proficient in executing tasks once specific instructions are provided.
+
+2. **Interpersonal Skills**  
+   - Effectively interacts with others and maintains a calm demeanor in various situations.
+
+3. **Communication Skills**  
+   - Communicates clearly and succinctly, striving for straightforward communication.
+
+<!-- Footer -->
+<!-- Last updated: October 2024 -->
